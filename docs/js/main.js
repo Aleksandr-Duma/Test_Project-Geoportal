@@ -8,6 +8,13 @@ $(function(){
 		dots: true
 	});
 
+// ...........................CounterUp.............................
+
+	$(".counter").counterUp({
+		delay: 10,
+		time: 400,
+	});
+
 // ............................Scroll...............................
 
 	$('a.link').click(function(){
@@ -19,24 +26,27 @@ $(function(){
 
 });
 
-// ...........................Mob-menu
+// ............................Mob-menu.............................
 
 const burger = document.querySelector('.burger-button');
 const navigation = document.querySelector('.header__navigation');
-const close = document.querySelector('.close');
+const close = document.querySelector('.close-button');
 const navLink = document.querySelectorAll('.main-navigation__link');
 
 	burger.addEventListener('click', function() {
 		navigation.classList.add('active');
+		document.body.style.overflow = 'hidden';
 	});
 
 	close.addEventListener('click', function() {
 		navigation.classList.remove('active');
+		document.body.style.overflow = '';
 	});
 
 	navLink.forEach(item => {
 		item.addEventListener('click', function() {
 			navigation.classList.remove('active');
+			document.body.style.overflow = '';
 		});
 	});
 
@@ -69,3 +79,8 @@ window.addEventListener('scroll', function() {
 
 	lastScroll = scrollPosition();
 });
+
+//.............................Copiright.............................	
+
+	let date = new Date();
+	let copy = document.querySelector('.copy-date').innerHTML = date.getFullYear();
